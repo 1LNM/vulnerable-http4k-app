@@ -1,0 +1,84 @@
+########################################
+# Gradle / Kotlin / Java
+########################################
+.gradle/
+**/build/
+out/
+*.class
+*.jar
+*.war
+*.ear
+hs_err_pid*
+
+# KEEP the Gradle wrapper JAR + properties (do NOT ignore):
+# gradle/wrapper/gradle-wrapper.jar
+# gradle/wrapper/gradle-wrapper.properties
+
+########################################
+# Node / JavaScript / TypeScript
+########################################
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+# TypeScript build info
+*.tsbuildinfo
+# Transpiled output (not needed for CodeQL; remove if you want them versioned)
+dist/
+
+########################################
+# Python
+########################################
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.so
+*.egg-info/
+.eggs/
+.build/
+.tox/
+.mypy_cache/
+.pytest_cache/
+.venv/
+venv/
+.env
+pip-wheel-metadata/
+
+########################################
+# CodeQL / Security Scan Artifacts
+########################################
+multi-db/
+codeql-db/
+*.sarif
+
+########################################
+# Runtime / Generated App Data
+########################################
+uploads/
+logs/
+*.log
+
+########################################
+# IDE / Editor
+########################################
+.idea/
+*.iml
+*.ipr
+*.iws
+.vscode/
+*.swp
+
+########################################
+# OS Files
+########################################
+.DS_Store
+Thumbs.db
+
+########################################
+# Misc
+########################################
+# Lockfiles to KEEP (uncomment ignore lines only if you decide not to commit locks)
+# package-lock.json
+# requirements.lock
