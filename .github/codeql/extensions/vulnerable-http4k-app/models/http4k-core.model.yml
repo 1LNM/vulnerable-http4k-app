@@ -2,7 +2,8 @@ extensions:
   - addsTo:
       pack: codeql/java-all
       extensible: sourceModel
-    data: []
+    data:
+      - ["org.http4k.core","Request",true,"query","(String)","","Argument[0]","ReturnValue","taint","manual"]
 
   - addsTo:
       pack: codeql/java-all
@@ -12,8 +13,7 @@ extensions:
   - addsTo:
       pack: codeql/java-all
       extensible: summaryModel
-    data:
-      - ["org.http4k.core","Request",true,"query","(String)","","Argument[0]","ReturnValue","taint","manual"]
+    data: []
 
   - addsTo:
       pack: codeql/java-all
