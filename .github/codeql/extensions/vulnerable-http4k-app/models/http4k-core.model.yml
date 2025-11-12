@@ -12,9 +12,12 @@ extensions:
       - ["org.http4k.core","Response",true,"header","(String,String)","","Argument[1]","response-splitting","manual"]
       - ["org.http4k.core","Response",true,"header","(String,String)","","Argument[0]","response-splitting","manual"]
       - ["org.http4k.core","Response",true,"header","(String,String)","","Argument[1]","url-redirection","manual"]
+      - ["org.http4k.core","Response",true,"header","(String,String)","","Argument[0]","request-forgery","manual"]
+      - ["org.http4k.core","Response",true,"header","(String,String)","","Argument[1]","request-forgery","manual"]
       - ["org.http4k.core","Response",true,"body","(String)","","Argument[0]","js-injection","manual"]
       - ["org.http4k.core","Response",true,"body","(String)","","Argument[0]","response-splitting","manual"]
       - ["org.http4k.core","Response",true,"body","(String)","","Argument[0]","html-injection","manual"]
+      - ["org.http4k.core","Response",true,"body","(String)","","Argument[0]","request-forgery","manual"]
 
   - addsTo:
       pack: codeql/java-all
