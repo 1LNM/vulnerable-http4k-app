@@ -11,16 +11,10 @@ extensions:
     data:
       - ["org.http4k.core","Response",true,"header","(String,String)","","Argument[1]","response-splitting","manual"]
       - ["org.http4k.core","Response",true,"header","(String,String)","","Argument[0]","response-splitting","manual"]
+      - ["org.http4k.core","Response",true,"header","(String,String)","","Argument[1]","url-redirection","manual"]
       - ["org.http4k.core","Response",true,"body","(String)","","Argument[0]","js-injection","manual"]
       - ["org.http4k.core","Response",true,"body","(String)","","Argument[0]","response-splitting","manual"]
       - ["org.http4k.core","Response",true,"body","(String)","","Argument[0]","html-injection","manual"]
-      - ["org.http4k.core","Response",true,"body","(String)","","Argument[0]","command-injection","manual"]
-      - ["org.http4k.core","Response",true,"body","(String)","","Argument[0]","sql-injection","manual"]
-      - ["org.http4k.core","Response",true,"body","(String)","","Argument[0]","information-leak","manual"]
-      - ["org.http4k.core","Response",true,"body","(String)","","Argument[0]","log-injection","manual"]
-      - ["org.http4k.core","Response",true,"body","(String)","","Argument[0]","url-redirection","manual"]
-      - ["org.http4k.core","Response",true,"body","(String)","","Argument[0]","notification","manual"]
-      - ["org.http4k.core","Response",true,"body","(String)","","Argument[0]","intent-redirection","manual"]
 
   - addsTo:
       pack: codeql/java-all
