@@ -34,3 +34,7 @@ kotlin {
 tasks.named("test") {
     enabled = false
 }
+
+dependencyLocking {
+    lockAllConfigurations()
+}
