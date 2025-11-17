@@ -20,6 +20,7 @@ fun headerInjectionEndpoint(request: Request): Response {
     val headerValue = request.query("value") ?: "default"
 
     // SINK: Header injection vulnerability
+    // Note: setting the Location header in a 3xx response would result in an url-redirect
     return Response(Status.OK)
         .header("X-Custom-Header", headerValue)
         .body("Header set successfully")
