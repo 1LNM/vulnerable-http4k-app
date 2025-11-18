@@ -75,7 +75,7 @@ This application uses the following http4k functions that should be modeled:
 
 ### Build
 ```bash
-./gradlew build
+./gradlew build #build failed? './gradlew clean assemble' should do the trick
 ```
 
 ### Run
@@ -90,7 +90,7 @@ The server will start on `http://localhost:8080`
 ### Step 1: Create CodeQL Database
 ```bash
 # Build the project first
-./gradlew clean build
+./gradlew clean assemble
 
 # Create CodeQL database
 codeql database create vulnerable-http4k-db \
