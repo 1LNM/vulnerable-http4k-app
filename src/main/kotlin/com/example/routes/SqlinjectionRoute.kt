@@ -58,11 +58,10 @@ fun profileEndpoint(request: Request): Response {
     val statement = connection.createStatement()
 
     statement.execute("CREATE TABLE IF NOT EXISTS profiles (username VARCHAR(255), email VARCHAR(255))")
-    statement.execute("INSERT INTO profiles VALUES ('admin', 'admin@example.com')")
-    statement.execute("INSERT INTO profiles VALUES ('user', 'user@example.com')")
+    statement.execute("INSERT INTO profiles VALUES ('admin', 'admin@example.com'), ('user', 'user@example.com')")
 
     // SINK: SQL Injection
-    val query = "SELECT * FROM profiles WHERE username = $username"
+    val query = "SELECT * FROM profiles WHERE username = '$username'"
     val resultSet = statement.executeQuery(query)
 
     val profile = if (resultSet.next()) {
