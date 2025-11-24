@@ -5,13 +5,7 @@ extensions:
     data:
       - ["org.http4k.core","Request",true,"query","(String)","","ReturnValue","remote","manual"]
       - ["org.http4k.lens","LensBuilder",true,"defaulted$default","(LensBuilder,String,Object,String,int,Object)","","ReturnValue","remote","manual"]
-      - ["org.http4k.lens","LensBuilder",true,"defaulted$default","(LensBuilder,String,Object,String,int,Object)","","Argument[this]","remote","manual"]
-      - ["org.http4k.lens","LensBuilder",true,"defaulted$default","(LensBuilder,String,Object,String,int,Object)","","Argument[0]","remote","manual"]
-      - ["org.http4k.lens","LensBuilder",true,"defaulted$default","(LensBuilder,String,Object,String,int,Object)","","Argument[1]","remote","manual"]
-      - ["org.http4k.lens","LensBuilder",true,"defaulted$default","(LensBuilder,String,Object,String,int,Object)","","Argument[2]","remote","manual"]
-      - ["org.http4k.lens","LensBuilder",true,"defaulted$default","(LensBuilder,String,Object,String,int,Object)","","Argument[3]","remote","manual"]
-      - ["org.http4k.lens","LensBuilder",true,"defaulted$default","(LensBuilder,String,Object,String,int,Object)","","Argument[4]","remote","manual"]
-      - ["org.http4k.lens","LensBuilder",true,"defaulted$default","(LensBuilder,String,Object,String,int,Object)","","Argument[5]","remote","manual"]
+      - ["org.http4k.lens","LensBuilder",true,"required$default","(LensBuilder,String,String,int,Object)","","ReturnValue","remote","manual"]
 
   - addsTo:
       pack: codeql/java-all
