@@ -62,7 +62,7 @@ fun profileEndpoint(request: Request): Response {
     statement.execute("INSERT INTO profiles VALUES ('user', 'user@example.com')")
 
     // SINK: SQL Injection
-    val query = "SELECT * FROM profiles WHERE username = '$username'"
+    val query = "SELECT * FROM profiles WHERE username = $username"
     val resultSet = statement.executeQuery(query)
 
     val profile = if (resultSet.next()) {
