@@ -4,6 +4,7 @@ extensions:
       extensible: sourceModel
     data:
       - ["org.http4k.core","Request",true,"query","(String)","","ReturnValue","remote","manual"]
+      - [ "org.http4k.lens","LensBuilder",true,"defaulted$default","(LensBuilder,String,Object,String,int,Object)","","ReturnValue","remote","manual" ]
 
   - addsTo:
       pack: codeql/java-all
