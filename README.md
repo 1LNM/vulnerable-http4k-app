@@ -208,7 +208,7 @@ The server will start on `http://localhost:8080`
 # Create CodeQL database
 codeql database create vulnerable-http4k-db \
   --language=java \
-  --command="./gradlew clean build" \
+  --command="./gradlew clean assemble" \
   --source-root=.
 ```
 

@@ -14,7 +14,7 @@ This guide walks through the complete testing process for validating CodeQL mode
 ### 1.1 Build the Application
 ```bash
 cd vulnerable-http4k-app
-./gradlew clean build
+./gradlew clean build #build failed? './gradlew clean assemble' should do the trick
 ```
 
 ### 1.2 Create CodeQL Database
