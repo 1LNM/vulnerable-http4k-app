@@ -26,7 +26,7 @@ fun commandInjectionLensGetEndpoint(request: Request): Response {
 
         Response(Status.OK).body("Exit code: $exitCode\n\nOutput:\n$output")
     } catch (e: Exception) {
-        Response(Status.INTERNAL_SERVER_ERROR).body("Error: \\$\{e.message}")
+        Response(Status.INTERNAL_SERVER_ERROR).body("Error: ${e.message}")
     }
 }
 
@@ -52,7 +52,7 @@ fun commandInjectionRequestHeaderEndpoint(request: Request): Response {
 
         Response(Status.OK).body("Exit code: $exitCode\n\nOutput:\n$output")
     } catch (e: Exception) {
-        Response(Status.INTERNAL_SERVER_ERROR).body("Error: \\$\{e.message}")
+        Response(Status.INTERNAL_SERVER_ERROR).body("Error: ${e.message}")
     }
 }
 
@@ -78,6 +78,6 @@ fun commandInjectionHttpMessageHeaderEndpoint(request: Request): Response {
 
         Response(Status.OK).body("Exit code: $exitCode\n\nOutput:\n$output")
     } catch (e: Exception) {
-        Response(Status.INTERNAL_SERVER_ERROR).body("Error: \\$\{e.message}")
+        Response(Status.INTERNAL_SERVER_ERROR).body("Error: ${e.message}")
     }
 }

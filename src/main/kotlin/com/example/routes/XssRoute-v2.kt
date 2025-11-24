@@ -131,6 +131,8 @@ fun xssToMessageEndpoint(request: Request): Response {
         .header("Content-Type", "text/html")
         .body(htmlContent)
 
-    // SINK: toMessage() outputs the response
-    return response.toMessage()
+    // SINK: Call Response.toMessage() for taint/sink analysis (side effect)
+    response.toMessage()
+
+    return response
 }

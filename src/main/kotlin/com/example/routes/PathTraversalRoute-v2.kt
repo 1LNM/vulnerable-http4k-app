@@ -51,7 +51,7 @@ fun pathTraversalUriGetPathEndpoint(request: Request): Response {
     return try {
         val content = file.readBytes()
         Response(Status.OK)
-            .header("Content-Disposition", "attachment; filename=${'$'}{filePath.substringAfterLast("/")}")
+            .header("Content-Disposition", "attachment; filename=${filePath.substringAfterLast("/")}")
             .body(content.inputStream())
     } catch (e: Exception) {
         Response(Status.NOT_FOUND).body("File not found")
