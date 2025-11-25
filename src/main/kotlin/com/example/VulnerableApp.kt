@@ -39,7 +39,7 @@ fun main() {
     println("  GET  /api/set-header?value=<value>  - Header Injection")
     println("  GET  /redirect?url=<value>          - Open Redirect")
     println("  GET  /api/ping?host=<value>         - Command Injection")
-    println("  GET  /api/profile?username=<value>  - SQL Injection (via lens)")
+    println("  GET  /api/profile?id=<value>        - SQL Injection (via lens)")
     println("  GET  /api/download?file=<value>     - Path Traversal (via URI)")
     println("  POST /api/search                    - XSS (via lens extraction)")
 }
