@@ -3,17 +3,12 @@ extensions:
       pack: codeql/java-all
       extensible: sourceModel
     data:
-      - ["org.http4k.lens","LensExtractor",true,"extract","(Object)","","ReturnValue","remote","manual"]
-      - ["org.http4k.core","Request$Companion",true,"create$default","(Request$Companion,Method,String,String,int,Object)","","ReturnValue","remote","manual"]
-      - ["org.http4k.core","Status$Companion",true,"getOK","()","","ReturnValue","remote","manual"]
-      - ["org.http4k.core","HttpMessage",true,"bodyString","()","","ReturnValue","remote","manual"]
       - ["org.http4k.core","Request",true,"query","(String)","","ReturnValue","remote","manual"]
-      - ["org.http4k.core","Request",true,"getUri","()","","ReturnValue","remote","manual"]
-      - ["org.http4k.core","Uri",true,"toString","()","","ReturnValue","remote","manual"]
-      - ["org.http4k.core","Request",true,"header","(String,String)","","Argument[1]","remote","manual"]
-      - ["org.http4k.core","Uri",true,"getPath","()","","ReturnValue","remote","manual"]
-      - ["org.http4k.core","Body",true,"getStream","()","","ReturnValue","remote","manual"]
-      - ["org.http4k.core","Uri",true,"getQuery","()","","ReturnValue","remote","manual"]
+      - ["org.http4k.lens","LensBuilder",true,"defaulted$default","(LensBuilder,String,Object,String,int,Object)","","ReturnValue","remote","manual"]
+      - ["org.http4k.lens","LensBuilder",true,"required$default","(LensBuilder,String,String,int,Object)","","ReturnValue","remote","manual"]
+      - ["org.http4k.lens","LensExtractor",true,"extract","(Object)","","ReturnValue","remote","manual"]
+      - ["org.http4k.lens","BiDiBodyLensSpec",true,"toLens","()","","ReturnValue","remote","manual"]
+
   - addsTo:
       pack: codeql/java-all
       extensible: sinkModel
@@ -27,14 +22,14 @@ extensions:
       - ["org.http4k.core","Response",true,"body","(String)","","Argument[0]","response-splitting","manual"]
       - ["org.http4k.core","Response",true,"body","(String)","","Argument[0]","html-injection","manual"]
       - ["org.http4k.core","Response",true,"body","(String)","","Argument[0]","request-forgery","manual"]
-      - ["org.http4k.core","Uri",true,"path","(String)","","Argument[0]","url-redirection","manual"]
+
   - addsTo:
       pack: codeql/java-all
       extensible: summaryModel
     data:
       - ["org.http4k.core","Request",true,"query","(String,String)","","Argument[this]","ReturnValue","taint","manual"]
+
   - addsTo:
       pack: codeql/java-all
       extensible: neutralModel
-    data:
-      - ["org.http4k.core","Response","getStatus","()","source","manual"]
+    data: []
