@@ -22,12 +22,12 @@ extensions:
       - ["org.http4k.core","Response",true,"body","(String)","","Argument[0]","response-splitting","manual"]
       - ["org.http4k.core","Response",true,"body","(String)","","Argument[0]","html-injection","manual"]
       - ["org.http4k.core","Response",true,"body","(String)","","Argument[0]","request-forgery","manual"]
+      - ["org.http4k.core","Uri",true,"path","(String)","","Argument[0]","url-redirection","manual"]
 
   - addsTo:
       pack: codeql/java-all
       extensible: summaryModel
-    data:
-      - ["org.http4k.core","Request",true,"query","(String,String)","","Argument[this]","ReturnValue","taint","manual"]
+    data: []
 
   - addsTo:
       pack: codeql/java-all
