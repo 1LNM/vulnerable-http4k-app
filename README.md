@@ -11,7 +11,7 @@ This application is designed to test CodeQL custom models for the http4k library
 ## Vulnerabilities Included
 
 ### v1 Endpoints (9 total)
-Testing with http4k core functions `Request.query`, `Response.header` and `Response.body`
+Testing with http4k core functions `Request.query`, `Response.header` and `Response.body` (other methods were not really tested or at least not successfully)
 
 #### 1. SQL Injection (2 variants)
 - **Endpoint**: `GET /api/user?id=<value>`
