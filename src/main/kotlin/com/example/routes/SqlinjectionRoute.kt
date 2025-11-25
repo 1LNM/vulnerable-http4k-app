@@ -52,8 +52,7 @@ fun sqlInjectionEndpoint(request: Request): Response {
  */
 fun profileEndpoint(request: Request): Response {
     // SOURCE: User input via lens
-    //val userId = Query.required("id")(request)
-    val userId = request.query("id") ?: "1"
+    val userId = Query.required("id")(request)
 
     // Initialize H2 in-memory database
     val connection = DriverManager.getConnection("jdbc:h2:mem:testdb")
