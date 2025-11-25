@@ -52,25 +52,26 @@ fun sqlInjectionEndpoint(request: Request): Response {
  */
 fun profileEndpoint(request: Request): Response {
     // SOURCE: User input via lens
-    val username = Query.required("username")(request)
+    val userId = Query.required("id")(request)
 
+    // Initialize H2 in-memory database
     val connection = DriverManager.getConnection("jdbc:h2:mem:testdb")
     val statement = connection.createStatement()
 
-    statement.execute("CREATE TABLE IF NOT EXISTS profiles (username VARCHAR(255), email VARCHAR(255))")
-    statement.execute("INSERT INTO profiles VALUES ('admin', 'admin@example.com'), ('user', 'user@example.com')")
+    // Create sample table
+    statement.execute("CREATE TABLE IF NOT EXISTS profiles (id INT, email VARCHAR(255))")
+    statement.execute("INSERT INTO profiles VALUES (1, 'admin@example.com'), (2, 'user@example.com')")
 
-    // SINK: SQL Injection
-    val query = "SELECT * FROM profiles WHERE username = '$username'"
+    // SINK: SQL Injection vulnerability - unsanitized user input in query
+    val query = "SELECT * FROM profiles WHERE id = $userId"
     val resultSet = statement.executeQuery(query)
 
-    val profile = if (resultSet.next()) {
-        "Email: ${resultSet.getString("email")}"
-    } else {
-        "User not found"
+    val results = mutableListOf<String>()
+    while (resultSet.next()) {
+        results.add("Email: ${resultSet.getString("email")}")
     }
 
     connection.close()
 
-    return Response(Status.OK).body(profile)
+    return Response(Status.OK).body(results.joinToString("\n"))
 }
