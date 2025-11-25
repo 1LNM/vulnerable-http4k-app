@@ -7,6 +7,7 @@ extensions:
       - ["org.http4k.lens","LensBuilder",true,"defaulted$default","(LensBuilder,String,Object,String,int,Object)","","ReturnValue","remote","manual"]
       - ["org.http4k.lens","LensBuilder",true,"required$default","(LensBuilder,String,String,int,Object)","","ReturnValue","remote","manual"]
       - ["org.http4k.lens","LensExtractor",true,"extract","(Object)","","ReturnValue","remote","manual"]
+      - ["org.http4k.lens","BiDiBodyLensSpec",true,"toLens","()","","ReturnValue","remote","manual"]
 
   - addsTo:
       pack: codeql/java-all
@@ -25,8 +26,7 @@ extensions:
   - addsTo:
       pack: codeql/java-all
       extensible: summaryModel
-    data:
-      - ["org.http4k.lens","BiDiBodyLensSpec",true,"toLens","()","","Argument[this]","ReturnValue","value","manual"]
+    data: []
 
   - addsTo:
       pack: codeql/java-all
