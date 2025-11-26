@@ -9,6 +9,12 @@ extensions:
       - ["org.http4k.lens","LensExtractor",true,"extract","(Object)","","ReturnValue","remote","manual"]
       - ["org.http4k.lens","BiDiBodyLensSpec",true,"toLens","()","","ReturnValue","remote","manual"]
       - ["org.http4k.core","Uri",true,"getPath","()","","ReturnValue","remote","manual"]
+      - ["org.http4k.core","HttpMessage",true,"header","(String)","","ReturnValue","remote","manual"]
+      - ["org.http4k.core","Request",true,"getUri","()","","ReturnValue","remote","manual"]
+      - ["org.http4k.core","HttpMessage",true,"getBody","()","","ReturnValue","remote","manual"]
+      - ["org.http4k.core","Body",true,"getStream","()","","ReturnValue","remote","manual"]
+      - ["org.http4k.core","Uri",true,"getQuery","()","","ReturnValue","remote","manual"]
+      - ["org.http4k.lens","LensExtractor",true,"get","(Object)","","ReturnValue","remote","manual"]
 
   - addsTo:
       pack: codeql/java-all
@@ -23,6 +29,16 @@ extensions:
       - ["org.http4k.core","Response",true,"body","(String)","","Argument[0]","response-splitting","manual"]
       - ["org.http4k.core","Response",true,"body","(String)","","Argument[0]","html-injection","manual"]
       - ["org.http4k.core","Response",true,"body","(String)","","Argument[0]","request-forgery","manual"]
+      - ["org.http4k.core","Response",true,"toMessage","()","","Argument[this]","request-forgery","manual"]
+      - ["org.http4k.core","Response",true,"toMessage","()","","Argument[this]","html-injection","manual"]
+      - ["org.http4k.core","Response",true,"toMessage","()","","Argument[this]","js-injection","manual"]
+      - ["org.http4k.core","Response",true,"toMessage","()","","Argument[this]","response-splitting","manual"]
+      - ["org.http4k.core","Response",true,"toMessage","()","","Argument[this]","code-injection","manual"]
+      - ["org.http4k.lens","LensInjector",true,"inject","(Object,Object)","","Argument[0]","code-injection","manual"]
+      - ["org.http4k.lens","LensInjector",true,"inject","(Object,Object)","","Argument[0]","js-injection","manual"]
+      - ["org.http4k.lens","LensInjector",true,"inject","(Object,Object)","","Argument[0]","response-splitting","manual"]
+      - ["org.http4k.lens","LensInjector",true,"inject","(Object,Object)","","Argument[0]","html-injection","manual"]
+      - ["org.http4k.lens","LensInjector",true,"inject","(Object,Object)","","Argument[0]","request-forgery","manual"]
 
   - addsTo:
       pack: codeql/java-all
