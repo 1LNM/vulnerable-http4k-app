@@ -32,7 +32,8 @@ fun sqlInjectionEndpoint(request: Request): Response {
 
     // GOOD: use a prepared statement
     val preparedStatement = connection.prepareStatement("SELECT * FROM users WHERE id = ?")
-    preparedStatement.setString(1, userId)
+    val userIdInt = userId.toIntOrNull() ?: 0
+    preparedStatement.setInt(1, userIdInt)
     val safeResultSet = preparedStatement.executeQuery()
 
 
