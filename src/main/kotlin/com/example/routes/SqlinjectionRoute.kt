@@ -27,30 +27,30 @@ fun sqlInjectionEndpoint(request: Request): Response {
     statement.execute("INSERT INTO users VALUES (1, 'Alice'), (2, 'Bob')")
 
     // SINK: SQL Injection vulnerability - unsanitized user input in query
-    // val query = "SELECT * FROM users WHERE id = $userId"
-    // val resultSet = statement.executeQuery(query)
+    val query = "SELECT * FROM users WHERE id = $userId"
+    val resultSet = statement.executeQuery(query)
 
     // GOOD: use a prepared statement
-    val preparedStatement = connection.prepareStatement("SELECT * FROM users WHERE id = ?")
-    val userIdInt = userId.toIntOrNull() ?: 0
-    preparedStatement.setInt(1, userIdInt)
-    val safeResultSet = preparedStatement.executeQuery()
+    // val preparedStatement = connection.prepareStatement("SELECT * FROM users WHERE id = ?")
+    // val userIdInt = userId.toIntOrNull() ?: 0
+    // preparedStatement.setInt(1, userIdInt)
+    // val safeResultSet = preparedStatement.executeQuery()
 
 
-    // val results = mutableListOf<String>()
-    // while (resultSet.next()) {
-    //     results.add("User: ${resultSet.getString("name")}")
-    // }
-
-    val safeResults = mutableListOf<String>()
-    while (safeResultSet.next()) {
-        safeResults.add("User: ${safeResultSet.getString("name")}")
+    val results = mutableListOf<String>()
+    while (resultSet.next()) {
+        results.add("User: ${resultSet.getString("name")}")
     }
+
+    // val safeResults = mutableListOf<String>()
+    // while (safeResultSet.next()) {
+    //     safeResults.add("User: ${safeResultSet.getString("name")}")
+    // }
 
     connection.close()
 
-    // return Response(Status.OK).body(results.joinToString("\n"))
-    return Response(Status.OK).body(safeResults.joinToString("\n"))
+    return Response(Status.OK).body(results.joinToString("\n"))
+    // return Response(Status.OK).body(safeResults.joinToString("\n"))
 }
 
 /**
